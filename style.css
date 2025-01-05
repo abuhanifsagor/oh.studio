@@ -14,15 +14,14 @@
   }
 
 
-  /* Hide scrollbar but allow scrolling */
-/* Hide scrollbar but allow scrolling */
 html, body {
     background: var(--white-color);
     scrollbar-width: none;
   }
-  
+
   body::-webkit-scrollbar {
-    display: none; /* Hides scrollbar in WebKit browsers (Chrome, Safari) */
+    display: none; 
+
   }
   
   a {
@@ -265,8 +264,6 @@ nav a:hover {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    padding: 40px 30px;
     
 }
 .SecpP,.firstpP{
