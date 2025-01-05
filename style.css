@@ -12,17 +12,25 @@
     --primary-color: #7f7f7f;
     --secondary-color: #e8e5e480;
   }
-  html {
-    scroll-behavior: smooth;
+
+
+  /* Hide scrollbar but allow scrolling */
+/* Hide scrollbar but allow scrolling */
+html, body {
+    background: var(--white-color);
+    scrollbar-width: none;
   }
-  body {
-    background-color: var(--white-color);
+  
+  body::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in WebKit browsers (Chrome, Safari) */
   }
+  
   a {
     text-decoration: none;
   }
 section{
-    padding: 80px 0;
+    padding: 80px 40px;
+    
 }
 .container {
     max-width: 1400px;
@@ -31,7 +39,11 @@ section{
     padding-right: 25px;
 }
 nav {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -40,7 +52,8 @@ nav {
     background: rgba(171, 171, 171, 0.498);
     border-radius: 50px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 nav a {
@@ -82,12 +95,48 @@ nav a:hover {
     align-items: center;
     text-align: center;
     height: 50vh;
+    margin-top: 100px;
 }
 .banner h1{
     font-size: 70px;
     margin-bottom: 60px;
     color: var(--dark-color);
 }
+@media screen and (max-width: 375px) and (min-width:0px) {
+
+    .banner h1{
+        font-size:20px;
+    }
+}
+@media  screen and (max-width: 768px)  and (min-width: 375px) {
+    
+    .banner h1{
+        font-size:25px;
+        margin-bottom: 60px;
+        color: var(--dark-color);
+    }
+    .banner{
+        margin-top: 50px;
+    }
+    #banner{
+        padding: 0;
+    }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    
+    .banner h1{
+        font-size:40px;
+        margin-bottom: 60px;
+        color: var(--dark-color);
+    }
+    
+}
+
+
+
+
+
+
 .tags{
     display: flex;
     justify-content: center;
@@ -105,4 +154,97 @@ nav a:hover {
         color: var(--white-color);
         background: var(--dark-color);
     }
+}
+
+
+
+
+/*project section*/
+.project{
+    background: var(--secondary-color);
+    border-radius: 10px;
+    padding: 40px 30px;
+}
+.project>div>div{
+    margin-bottom: 25px;
+}
+.box img{
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    &:hover{
+       filter: brightness(0.2);
+       
+    }
+}
+.box{
+    position: relative;
+    overflow: hidden;
+    &:hover .boxContent{
+        opacity: 1;
+
+    }
+}
+.boxContent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 20px 40px;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    justify-content: space-between;
+    h4{
+        color: var(--white-color);
+        font-weight: 400;
+        font-size: 18px;
+    }
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        overflow: hidden;
+        float: right;
+        &:hover{
+            filter: brightness(1);
+        }
+    }
+}
+/*getInTouch section*/
+.getInTouch{
+    h1{
+        font-weight: 600;
+        color: var(--dark-color);
+    }
+    h2 a{
+        font-weight: 400;
+        margin-bottom: 40px;
+        color: #b1b1b1;
+        transition: 0.3s ease;
+        &:hover{
+            color: var(--primary-color);
+        }
+    }
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    img{
+        width: 50px;
+        height: 50px;
+    }
+}
+.socail{
+    display: flex;
+    gap: 10px;
 }
