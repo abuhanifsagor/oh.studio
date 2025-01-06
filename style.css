@@ -334,6 +334,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    overflow: hidden;
   }
   
   #preloader img {
