@@ -20,3 +20,22 @@ window.addEventListener("load", () => {
         indicator(activeLink);
     }
 });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const preloader = document.getElementById("preloader");
+
+    // Check if the preloader has already been shown
+    const hasLoadedBefore = localStorage.getItem("hasLoaded");
+
+    if (!hasLoadedBefore) {
+      // Show the preloader and wait for the page to fully load
+      window.addEventListener("load", function () {
+        preloader.style.display = "none"; // Hide the preloader
+        localStorage.setItem("hasLoaded", "true"); // Mark as loaded in localStorage
+      });
+    } else {
+      // Immediately hide the preloader if it has already been shown before
+      preloader.style.display = "none";
+    }
+  });
+
